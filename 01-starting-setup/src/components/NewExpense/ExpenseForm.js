@@ -2,43 +2,50 @@ import { useState } from "react";
 import "./ExpenseForm.css";
 
 function ExpenseForm() {
-  //   const [enteredTitle, setEnteredTitle] = useState("");
-  //   const [enteredAmount, setEnteredAmount] = useState("");
-  //   const [enteredDate, setEnteredDate] = useState("");
+  const [enteredTitle, setEnteredTitle] = useState("");
+  const [enteredAmount, setEnteredAmount] = useState("");
+  const [enteredDate, setEnteredDate] = useState("");
 
-  const [userInput, setUserInput] = useState({
-    enteredTitle: "",
-    enteredAmount: "",
-    enteredDate: "",
-  });
+  // Single state alternative:
+  //   const [userInput, setUserInput] = useState({
+  //     enteredTitle: "",
+  //     enteredAmount: "",
+  //     enteredDate: "",
+  //   });
 
   const titleChangeHandler = (e) => {
-    // setEnteredTitle(e.target.value);
+    setEnteredTitle(e.target.value);
+
+    // Single state alternative:
     // setUserInput({
     //   ...userInput,
     //   enteredTitle: e.target.value,
     // });
 
     // ! Updating state that depends on previous state:
-    setUserInput((previousState) => {
-        return { ...previousState, enteredTitle: e.target.value };
-    });
+    // setUserInput((previousState) => {
+    //   return { ...previousState, enteredTitle: e.target.value };
+    // });
   };
 
   const amountChangeHandler = (e) => {
-    // setEnteredAmount(e.target.value);
-    setUserInput({
-      ...userInput,
-      enteredAmount: e.target.value,
-    });
+    setEnteredAmount(e.target.value);
+
+    // Single state alternative:
+    // setUserInput({
+    //   ...userInput,
+    //   enteredAmount: e.target.value,
+    // });
   };
 
   const dateChangeHandler = (e) => {
-    // setEnteredDate(e.target.value);
-    setUserInput({
-      ...userInput,
-      enteredDate: e.target.value,
-    });
+    setEnteredDate(e.target.value);
+
+    // Single state alternative:
+    // setUserInput({
+    //   ...userInput,
+    //   enteredDate: e.target.value,
+    // });
   };
 
   return (
