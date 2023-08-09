@@ -48,12 +48,26 @@ function ExpenseForm() {
     // });
   };
 
+  // Shared handler function that could be used for all inputs:
+  const inputChangeHandler = (identifier, value) => {
+    if (identifier === "title") {
+      setEnteredTitle(value);
+    } else if (identifier === "amount") {
+      setEnteredAmount(value);
+    } else {
+      setEnteredDate(value);
+    }
+  };
+
   return (
     <form>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" onChange={titleChangeHandler} />
+          <input
+            type="text"
+            onChange={(e) => inputChangeHandler("title", e.target.value)}
+          />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
