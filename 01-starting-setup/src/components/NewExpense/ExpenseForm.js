@@ -63,11 +63,14 @@ function ExpenseForm() {
     e.preventDefault();
 
     const expenseData = {
-        title: enteredTitle,
-        amount: enteredAmount,
-        date: new Date(enteredDate)
+      title: enteredTitle,
+      amount: enteredAmount,
+      date: new Date(enteredDate),
     };
-    console.log(expenseData);
+
+    setEnteredTitle("");
+    setEnteredAmount("");
+    setEnteredDate("");
   };
 
   return (
@@ -77,6 +80,7 @@ function ExpenseForm() {
           <label>Title</label>
           <input
             type="text"
+            value={enteredTitle}
             onChange={(e) => inputChangeHandler("title", e.target.value)}
           />
         </div>
@@ -86,6 +90,7 @@ function ExpenseForm() {
             type="number"
             min="0.01"
             step="0.01"
+            value={enteredAmount}
             onChange={amountChangeHandler}
           />
         </div>
@@ -95,6 +100,7 @@ function ExpenseForm() {
             type="date"
             min="2019-01-01"
             step="2022-12-31"
+            value={enteredDate}
             onChange={dateChangeHandler}
           />
         </div>
